@@ -1,0 +1,4 @@
+: eggCount  \ n -- n
+  dup !if drop 0 ;; then
+  dup 1 band swap 1 shr eggCount n:+
+;
