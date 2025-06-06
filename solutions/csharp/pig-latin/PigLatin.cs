@@ -29,5 +29,5 @@ public static class PigLatin
     }
 
     private static string Ay(Match m) =>
-        m.Groups[2].ToString() + m.Groups[1].ToString() + "ay";
+        $"{m.Groups[2]}{m.Groups[1]}ay";
 }
