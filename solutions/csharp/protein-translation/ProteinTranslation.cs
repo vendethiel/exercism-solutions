@@ -12,16 +12,14 @@ public static class ProteinTranslation
             .ToArray();
     }
 
-    private static string Convert(string tri) {
-        return tri switch {
-            "AUG" => "Methionine",
-            "UUU" or "UUC" => "Phenylalanine",
-            "UUA" or "UUG" => "Leucine",
-            "UCU" or "UCC" or "UCA" or "UCG" => "Serine",
-            "UAU" or "UAC" => "Tyrosine",
-            "UGU" or "UGC" => "Cysteine",
-            "UGG" => "Tryptophan",
-            _ => null,
-        };
-    }
+    private static string Convert(string tri) => tri switch {
+        "AUG" => "Methionine",
+        "UUU" or "UUC" => "Phenylalanine",
+        "UUA" or "UUG" => "Leucine",
+        "UCU" or "UCC" or "UCA" or "UCG" => "Serine",
+        "UAU" or "UAC" => "Tyrosine",
+        "UGU" or "UGC" => "Cysteine",
+        "UGG" => "Tryptophan",
+        _ => null,
+    };
 }
