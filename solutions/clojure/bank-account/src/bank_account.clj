@@ -10,4 +10,4 @@
   @acc)
 
 (defn update-balance [acc n]
-  (swap! acc #(+ n %)))
+  (swap! acc + n))
