@@ -15,11 +15,11 @@ values([X|Xs], Value) :-
   values(Xs, Vs),
   Value is V + Vs.
 
-maximum_value([], [], _, 0).
-maximum_value(_, Cur, Capacity, Value) :-
+maximum_value([], Cur, Capacity, _) :-
   weights(Cur, W),
   W > Capacity,
-  Value is 0.
+  !,
+  fail.
 maximum_value([], Cur, Capacity, Value) :-
   weights(Cur, W),
   W =< Capacity,
@@ -28,6 +28,7 @@ maximum_value([X|Xs], Cur, Capacity, Value) :-
   weights(Cur, W),
   W =< Capacity,
   values(Cur, V1),
-  maximum_value(Xs, [X|Cur], Capacity, V2),
-  maximum_value(Xs, Cur, Capacity, V3),
-  Value is max(V1, max(V2, V3)).
+  (maximum_value(Xs, [X|Cur], Capacity, V2) ; V2 = 0),
+  (maximum_value(Xs, Cur, Capacity, V3) ; V3 = 0),
+  Value is max(V1, max(V2, V3)),
+  Value > 0.
