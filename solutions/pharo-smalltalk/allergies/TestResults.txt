@@ -1,4 +1,4 @@
-Tested on: 2024-04-28 14:53
+Tested on: 2024-04-28 14:58
 20 run, 20 passes, 0 skipped, 0 failures, 0 errors.
 Used OS/Platform: Mac OS 1000 arm64
 Image version: Pharo13.0.0SNAPSHOT build: 11 (64 Bit)
