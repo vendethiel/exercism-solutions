@@ -1,0 +1,9 @@
+!YS-v0
+
+defn score(x y):
+  val =: Math/sqrt((x * x) + (y * y))
+  cond:
+    val > 10: 0
+    val > 5: 1
+    val > 1: 5
+    :else: 10
