@@ -1,0 +1,9 @@
+rotationalCipher.rotate : Text -> Nat -> Text
+rotationalCipher.rotate text shiftKey = let
+    under u a n = (Nat.mod ((n Nat.- u) Nat.+ shiftKey) a) Nat.+ u
+    shift = cases
+        c | isLower c -> c |> Char.toNat |> under 97 26 |> Char.fromNat |> Optional.getOrElse c
+        c | isUpper c -> c |> Char.toNat |> under 65 26 |> Char.fromNat |> Optional.getOrElse c
+        c -> c
+
+    Text.map shift text
