@@ -20,12 +20,9 @@ ENDCLASS.
 CLASS zcl_rna_transcription IMPLEMENTATION.
 
   METHOD transcribe.
-    result := strand.
-    REPLACE ALL OCCURENCES OF `A` IN result WITH `U`.
-    REPLACE ALL OCCURENCES OF `T` IN result WITH `A`.
-    REPLACE ALL OCCURENCES OF `C` IN result WITH `_`.
-    REPLACE ALL OCCURENCES OF `G` IN result WITH `C`.
-    REPLACE ALL OCCURENCES OF `_` IN result WITH `G`.
+    result = translate( val  = strand
+                        from = `GCTA`
+                        to   = `CGAU` ).
   ENDMETHOD.
 
 ENDCLASS.
