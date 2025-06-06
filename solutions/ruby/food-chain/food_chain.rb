@@ -51,7 +51,7 @@ class FoodChain
             def comment = "She's dead, of course!"
             def prey_on = []
         end
-        ANIMALS = Animal.subclasses.map(&:new).sort{_1.order}
+        ANIMALS = Animal.subclasses.map(&:new).sort{_1.order <=> _2.order} # Exercism sucks
     end
 
     def self.song
