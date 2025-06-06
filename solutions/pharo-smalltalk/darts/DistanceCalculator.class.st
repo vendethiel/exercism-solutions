@@ -5,9 +5,7 @@ Class {
 	#name : 'DistanceCalculator',
 	#superclass : 'Object',
 	#instVars : [
-		'value',
-		'x',
-		'y'
+		'value'
 	],
 	#category : 'Exercise@Darts',
 	#package : 'Exercise@Darts'
