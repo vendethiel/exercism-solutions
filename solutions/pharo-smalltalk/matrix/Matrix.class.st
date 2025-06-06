@@ -20,10 +20,10 @@ Matrix >> input: str atRow: row [
 
 { #category : 'parsing' }
 Matrix >> line: line [
-	^ ((line findTokens: ' ') collect: [ :i | i asNumber ]) asArray
+	^ (line findTokens: ' ') asArray collect: [ :i | i asNumber ]
 ]
 
 { #category : 'parsing' }
 Matrix >> parse: str [
-	^ ((str findTokens: String cr) collect: [ :line | self line: line ]) asArray 
+	^ (str findTokens: String cr) asArray collect: [ :line | self line: line ]
 ]
