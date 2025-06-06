@@ -21,7 +21,7 @@ defmodule RomanNumerals do
     res
   end
 
-  def single({number, str}, min, x) do
+  defp single({number, str}, min, x) do
     if number >= min do
       {number - min, str <> x}
     else
@@ -29,7 +29,7 @@ defmodule RomanNumerals do
     end
   end
 
-  def triple(a, b, c) do
+  defp triple(a, b, c) do
     a
     |> single(b, c)
     |> single(b, c)
