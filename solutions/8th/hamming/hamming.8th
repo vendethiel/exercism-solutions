@@ -1,0 +1,11 @@
+: distance \ s1 s2 -- n
+  \ error check
+  s:len2 n:= !if 2drop null ;; then
+  \ now do it
+  null s:/
+  swap
+  null s:/
+  ( s:= ) a:2map
+  false a:remove
+  nip
+;
