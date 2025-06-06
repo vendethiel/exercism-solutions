@@ -72,6 +72,7 @@ WordSearch >> search: aString inGrid: aCollection [
 WordSearch >> searchWordsToSearchFor: xs grid: grid [ 
 	|coll|
 	coll := Dictionary new.
+	coll at: 'list' put: nil. "this exercise was never tested"
 	xs do: [ :el |
 		coll at: el put: (self search: el inGrid: grid).
 	 ].
