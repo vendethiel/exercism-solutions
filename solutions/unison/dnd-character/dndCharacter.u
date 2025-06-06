@@ -1,0 +1,36 @@
+unique type dndCharacter.Character = { strength : Nat
+                                     , dexterity : Nat
+                                     , constitution : Nat
+                                     , intelligence : Nat
+                                     , wisdom : Nat
+                                     , charisma : Nat
+                                     , hitpoints : Nat
+                                     }
+
+dndCharacter.modifier : Nat -> Int
+dndCharacter.modifier score =
+  use Float toInt floor /
+  use Nat toFloat
+  use Optional getOrElse
+  (toFloat score - 10.0) / 2.0 |> floor |> toInt |> getOrElse +0
+
+dndCharacter.ability_ : '{Random} Nat
+dndCharacter.ability_ = do
+  List.replicate 4 (do Random.natIn 1 6) |>
+  List.sort |>
+  List.drop 1 |>
+  List.foldLeft (Nat.+) 0
+
+dndCharacter.character : '{Random} Character
+dndCharacter.character = do
+  use Int toNat
+  use Optional getOrElse
+  constitution = !ability_
+  Character
+    !ability_
+    !ability_
+    constitution
+    !ability_
+    !ability_
+    !ability_
+    (+10 + modifier constitution |> toNat |> getOrElse 0)
