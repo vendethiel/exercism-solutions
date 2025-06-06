@@ -18,7 +18,7 @@ defmodule Frequency do
 
   defp freq(text), do:
     text
-    |> String.replace(~r/[\d\s!?;'\"(),:._-]/, "")
+    |> String.replace(~r/[^\p{L}]/u, "")
     |> String.downcase
     |> String.graphemes
     |> Enum.frequencies
