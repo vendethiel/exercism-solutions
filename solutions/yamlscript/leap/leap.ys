@@ -1,0 +1,11 @@
+!YS-v0
+
+def isdiv: (comp zero? mod)
+
+defn leap-year(year):
+  and:
+    isdiv: year 4
+    or:
+      not:
+        isdiv: year 100
+      isdiv: year 400
