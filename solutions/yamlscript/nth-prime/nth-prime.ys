@@ -1,0 +1,10 @@
+!YS-v0
+
+def isdiv: (comp zero? rem)
+defn isprime(n):
+  1 < n &&:
+    not-any?: \(isdiv n _) range(2 n)
+
+defn prime(number):
+  nth _ (dec number):
+    filter: isprime range()
